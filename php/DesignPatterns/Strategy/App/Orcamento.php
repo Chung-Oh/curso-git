@@ -1,6 +1,6 @@
 <?php
 
-namespace Strategy;
+namespace App;
 
 class Orcamento
 {

@@ -1,10 +1,13 @@
 <?php
 
-namespace Strategy\Impostos;
+namespace Impostos;
 
-class ICMS
+use App\Orcamento;
+use Interfaces\Imposto;
+
+class ICMS implements Imposto
 {
-    public function calculaICMS(Orcamento $orcamento)
+    public function calcula(Orcamento $orcamento)
     {
         return $orcamento->getValor() * 0.1;
     }

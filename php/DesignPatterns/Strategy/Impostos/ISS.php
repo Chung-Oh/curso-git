@@ -1,11 +1,14 @@
 <?php
 
-namespace Strategy\Impostos;
+namespace Impostos;
 
-class ISS
+use App\Orcamento;
+use Interfaces\Imposto;
+
+class ISS implements Imposto
 {
-    public function calculaISS(Orcamento $orcamento)
+    public function calcula(Orcamento $orcamento)
     {
-        return $orcamento->getValor() * 0.1;
+        return $orcamento->getValor() * 0.06;
     }
 }
