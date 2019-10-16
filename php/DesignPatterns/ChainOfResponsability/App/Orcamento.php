@@ -5,10 +5,17 @@ namespace App;
 class Orcamento
 {
     private $valor;
+    private $itens;
 
-    public function __construct($valor)
+    public function __construct()
     {
-        $this->valor = $valor;
+        $this->itens = [];
+    }
+
+    public function novoProduto($item, $valor)
+    {
+        $this->setValor($valor);
+        array_push($this->itens, $item);
     }
 
     public function getValor()
@@ -19,5 +26,15 @@ class Orcamento
     public function setValor($valor)
     {
         $this->valor = $valor;
+    }
+
+    public function getItens()
+    {
+        return $this->itens;
+    }    
+
+    public function setItens($item)
+    {
+        array_push($this->itens, $item);
     }
 }

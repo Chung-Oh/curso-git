@@ -8,19 +8,19 @@ function autoload($class)
 
 spl_autoload_register('autoload');
 
-use Impostos\ISS;
-use Impostos\ICMS;
+use App\Calculador;
 use App\Orcamento;
-use App\CalculadorDeImpostos;
+// use Descontos\Desconto500Reais;
+// use Descontos\DescontoPor5Itens;
 
-$iss = new ISS();
-$icms = new ICMS();
-$orcamento = new Orcamento(1500);
-$calculadora = new CalculadorDeImpostos();
+$orcamento = new Orcamento();
+$orcamento->novoProduto('Playstation', 3200);
+$orcamento->novoProduto('Geladeira', 1100);
+$calculador = new Calculador();
 
 echo '<pre>============================================= SAÍDA =================================================<br>';
 echo 'Orçamento = R$ ' . $orcamento->getValor() . '<br>';
-echo 'ICMS = R$ ' . $calculadora->realizaCalculo($orcamento, $icms) . '<br>';
-echo 'ISS = R$ ' . $calculadora->realizaCalculo($orcamento, $iss) . '<br>';
+echo 'Desconto = R$ ' . $calculador->calcula($orcamento) . '<br>';
 
 echo '<br>============================================= DEBBUG =================================================<br>';
+print_r($orcamento);
